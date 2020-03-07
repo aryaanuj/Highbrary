@@ -91,7 +91,7 @@
             {
               while($row=mysqli_fetch_array($query))
               {
-                $img = $row['profile_img'];
+                $img = $row['profile_image'];
               }
             }
 
@@ -100,7 +100,7 @@
               aria-haspopup="true" aria-expanded="false">My Account</a>
 
             <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="width:250px;">
-              <center><img src="img/<?php echo $img; ?>" class="img-circle" style="width:100px; height: 100px;">
+              <center><img src="<?php echo $img; ?>" class="img-circle" style="width:100px; height: 100px;">
                 <p class="mt-3" style="color:#2eca6a;"><?php echo $_SESSION['user_id']; ?></p>
               </center>
               <hr>
@@ -146,10 +146,10 @@
               <input type="email" name="email" class="form-control" placeholder="Email">
             </div>
             <div class="form-group">
-              <input type="password" name="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" class="form-control" placeholder="Password" id="password">
             </div>
             <div class="form-group">
-              <input type="password" name="confirm-pass" class="form-control" placeholder="Confirm Password" >
+              <input type="password" name="confirm-pass" class="form-control" placeholder="Confirm Password" id="confirmPass">
               <p class="text-danger" id="msg"></p>
             </div>
             <div class="form-group">
@@ -164,3 +164,26 @@
   </div>
 </div>
   <!--/ Nav End /-->
+
+  <!-- password matching -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("#confirmPass").keyup(function(){
+          if($("#password").val()!="")
+          {
+            if($(this).val()!=$("#password").val())
+            {
+              $("#msg").html("<p class='text-danger'>Password not matched</p>");
+            }
+            else
+            {
+              $("#msg").html("<p class='text-success'>Password matched</p>");
+            }
+          }
+          else
+          {
+            $("#msg").html("");
+          }
+        });
+    });
+  </script>

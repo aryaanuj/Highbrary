@@ -10,7 +10,7 @@ if(isset($_POST['register']))
 
 	if($password===$cnfpass)
 	{
-		$query = "INSERT INTO users (name, email, password, profile_img) VALUES ('$name', '$email', '$password', 'default_profile.jpg')";
+		$query = "INSERT INTO users (name, email, password, profile_image) VALUES ('$name', '$email', '$password', 'img/default_profile.jpg')";
 		$result = mysqli_query($con, $query) or die(mysqli_error($con));
 
 		echo "<script>alert('Congratulations!!! you are succesfully registered');</script>";

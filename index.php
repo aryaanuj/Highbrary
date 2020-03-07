@@ -10,7 +10,7 @@ if(mysqli_num_rows($query))
   while($row=mysqli_fetch_array($query))
   {
     $_SESSION['user_id']=$row['email'];
-    $img = $row['profile_img'];
+    $img = $row['profile_image'];
   }
 }
 ?>
@@ -753,26 +753,7 @@ if(mysqli_num_rows($query))
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
 
-<!--   <script type="text/javascript">
-    $(document).ready(function(e){
 
-        e.preventDefault();
-      $.ajax({
-
-          url:"registration_script.php",
-          method:"post",
-          data:$("#reg_form").serialize(),
-          success:function(data)
-          {
-            if(data=="pass_mismatch"){
-            $("#msg").html(data);
-          }
-          }
-
-      });
-
-    })
-  </script> -->
 
 </body>
 </html>

@@ -1,33 +1,11 @@
 <?php
 session_start();
 include("database_connection.php");
+include("MainScripts/BookScript.php");
 $books = @$_GET['books'];
 $title = @$_GET['title'];
 $author = @$_GET['author'];
 $types = @$_GET['types'];
-
-// echo "<script>alert('".$title.$author.$types."');</script>";
-if($books=="schools")
-{
-
-}
-else if($books=="colleges")
-{
-
-}
-else if($books=="competitive")
-{
-
-}
-else if($books=="novels")
-{
-
-}
-else if($books=="papers")
-{
-
-}
-
 
 ?>
 <!DOCTYPE html>
@@ -66,7 +44,7 @@ else if($books=="papers")
  <?php include("navbar.php"); ?>
 <!--Books Section -->
 <section style="height:200vh; width:100%;">
-  <div class="col-md-12 container-fluid" style="position: relative; top:100px;">
+  <div class="col-md-12 container-fluid" style="position:relative; top:120px;">
     <div class="row">
       <div class="col-md-3">
         <div class="card card-default" style="box-shadow: 3px 5px lightgray; height:auto;">
@@ -91,75 +69,13 @@ else if($books=="papers")
          </div>
         </div>
       </div>
-
-       <div class="col-md-2">
-        
-          <div class="card card-default" style="width:250px; height:auto;">
-          <div class="card-body"><center><img src="img/1.jpg" style="height:220px;" class="img-fluid" /></center></div>
-          <div class="card-footer">
-            <a href="description.php?id=1">
-            <p>Flipkart Perfect Homes Webster TV Entertainment Unit</p>
-          </a>
-            <small style="color:gray;">Finish Color - Wenge</small><br>
-            <p><i class="badge bg-success text-white" style="font-size:14px; font-style: normal;">4.2 <i class="fa fa-star"></i></i> (5,066)</p>
-            <div class="row"><p style="font-weight: bold;" class="ml-3">₹12,990&nbsp;&nbsp;
-              <p style="color:gray;"><strike>₹19,599</strike>&nbsp; <span>33% off</span></p></p>
-            </div>
-            <p>No Cost EMI</p>
-          </div>
+      <div class="col-md-8">
+        <div class="row">
+          <!-- GET ALL BOOKS -->
+          <?php echo getAllBooks($books, $con); ?>
         </div>
       </div>
-       <div class="col-md-2 ml-4">
-        
-          <div class="card card-default" style="width:250px; height:auto;">
-          <div class="card-body"><center><img src="img/2.jpg" style="height:220px;" class="img-fluid" /></center></div>
-          <div class="card-footer">
-            <a href="description.php?id=2">
-            <p>Flipkart Perfect Homes Webster TV Entertainment Unit</p>
-          </a>
-            <small style="color:gray;">Finish Color - Wenge</small><br>
-            <p><i class="badge bg-success text-white" style="font-size:14px; font-style: normal;">4.2 <i class="fa fa-star"></i></i> (5,066)</p>
-            <div class="row"><p style="font-weight: bold;" class="ml-3">₹12,990&nbsp;&nbsp;
-              <p style="color:gray;"><strike>₹19,599</strike>&nbsp; <span>33% off</span></p></p>
-            </div>
-            <p>No Cost EMI</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-2 ml-4">
-        
-          <div class="card card-default" style="width:250px; height:auto;">
-          <div class="card-body"><center><img src="img/3.jpg" style="height:220px;" class="img-fluid" /></center></div>
-          <div class="card-footer">
-            <a href="description.php">
-            <p>Flipkart Perfect Homes Webster TV Entertainment Unit</p>
-          </a>
-            <small style="color:gray;">Finish Color - Wenge</small><br>
-            <p><i class="badge bg-success text-white" style="font-size:14px; font-style: normal;">4.2 <i class="fa fa-star"></i></i> (5,066)</p>
-            <div class="row"><p style="font-weight: bold;" class="ml-3">₹12,990&nbsp;&nbsp;
-              <p style="color:gray;"><strike>₹19,599</strike>&nbsp; <span>33% off</span></p></p>
-            </div>
-            <p>No Cost EMI</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-2 ml-4">
-        
-          <div class="card card-default" style="width:250px; height:auto;">
-          <div class="card-body"><center><img src="img/4.jpg" style="height:220px;" class="img-fluid" /></center></div>
-          <div class="card-footer">
-            <a href="description.php">
-            <p>Flipkart Perfect Homes Webster TV Entertainment Unit</p>
-          </a>
-            <small style="color:gray;">Finish Color - Wenge</small><br>
-            <p><i class="badge bg-success text-white" style="font-size:14px; font-style: normal;">4.2 <i class="fa fa-star"></i></i> (5,066)</p>
-            <div class="row"><p style="font-weight: bold;" class="ml-3">₹12,990&nbsp;&nbsp;
-              <p style="color:gray;"><strike>₹19,599</strike>&nbsp; <span>33% off</span></p></p>
-            </div>
-            <p>No Cost EMI</p>
-          </div>
-        </div>
-      </div>
+      
       <div class="col-md-12">
       <div class="row">
       <div class="col-md-3">
@@ -187,75 +103,6 @@ else if($books=="papers")
             <input type="checkbox" name="y5" value=""> 5 - 9 Years <br>
             <input type="checkbox" name="y9" value=""> 9 - 12 Years <br>
             <input type="checkbox" name="teens" value=""> Teens <br>
-          </div>
-        </div>
-      </div>
-      
-       <div class="col-md-2 ">
-        
-          <div class="card card-default" style="width:250px; height:auto;">
-          <div class="card-body"><center><img src="img/6.jpg" style="height:220px;" class="img-fluid" /></center></div>
-          <div class="card-footer">
-            <a href="description.php">
-            <p>Flipkart Perfect Homes Webster TV Entertainment Unit</p>
-          </a>
-            <small style="color:gray;">Finish Color - Wenge</small><br>
-            <p><i class="badge bg-success text-white" style="font-size:14px; font-style: normal;">4.2 <i class="fa fa-star"></i></i> (5,066)</p>
-            <div class="row"><p style="font-weight: bold;" class="ml-3">₹12,990&nbsp;&nbsp;
-              <p style="color:gray;"><strike>₹19,599</strike>&nbsp; <span>33% off</span></p></p>
-            </div>
-            <p>No Cost EMI</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-2 ml-4">
-        
-          <div class="card card-default" style="width:250px; height:auto;">
-          <div class="card-body"><center><img src="img/7.jpg" style="height:220px;" class="img-fluid" /></center></div>
-          <div class="card-footer">
-            <a href="description.php">
-            <p>Flipkart Perfect Homes Webster TV Entertainment Unit</p>
-          </a>
-            <small style="color:gray;">Finish Color - Wenge</small><br>
-            <p><i class="badge bg-success text-white" style="font-size:14px; font-style: normal;">4.2 <i class="fa fa-star"></i></i> (5,066)</p>
-            <div class="row"><p style="font-weight: bold;" class="ml-3">₹12,990&nbsp;&nbsp;
-              <p style="color:gray;"><strike>₹19,599</strike>&nbsp; <span>33% off</span></p></p>
-            </div>
-            <p>No Cost EMI</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-2 ml-4">
-        
-          <div class="card card-default" style="width:250px; height:auto;">
-          <div class="card-body"><center><img src="img/8.jpg" style="height:220px;" class="img-fluid" /></center></div>
-          <div class="card-footer">
-            <a href="description.php">
-            <p>Flipkart Perfect Homes Webster TV Entertainment Unit</p>
-          </a>
-            <small style="color:gray;">Finish Color - Wenge</small><br>
-            <p><i class="badge bg-success text-white" style="font-size:14px; font-style: normal;">4.2 <i class="fa fa-star"></i></i> (5,066)</p>
-            <div class="row"><p style="font-weight: bold;" class="ml-3">₹12,990&nbsp;&nbsp;
-              <p style="color:gray;"><strike>₹19,599</strike>&nbsp; <span>33% off</span></p></p>
-            </div>
-            <p>No Cost EMI</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-2 ml-4">
-        
-          <div class="card card-default" style="width:250px; height:auto;">
-          <div class="card-body"><center><img src="img/9.jpg" style="height:220px;" class="img-fluid" /></center></div>
-          <div class="card-footer">
-            <a href="description.php">
-            <p>Flipkart Perfect Homes Webster TV Entertainment Unit</p>
-          </a>
-            <small style="color:gray;">Finish Color - Wenge</small><br>
-            <p><i class="badge bg-success text-white" style="font-size:14px; font-style: normal;">4.2 <i class="fa fa-star"></i></i> (5,066)</p>
-            <div class="row"><p style="font-weight: bold;" class="ml-3">₹12,990&nbsp;&nbsp;
-              <p style="color:gray;"><strike>₹19,599</strike>&nbsp; <span>33% off</span></p></p>
-            </div>
-            <p>No Cost EMI</p>
           </div>
         </div>
       </div>
